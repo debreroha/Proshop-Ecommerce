@@ -29,7 +29,7 @@ const orderSchema = mongoose.Schema({
     paymentReuslt: {
         id: {type: String},
         status: {type: String},
-        update_time: {type: string},
+        update_time: {type: String},
     },
     itemsPrice:{
         type: Number, 
