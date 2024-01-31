@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 
 const reviewSchema = mongoose.Schema({
     user:{
-        type:mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: "user",
+        ref: "User",
     },
     name: {
         type: String,
@@ -24,9 +24,9 @@ const reviewSchema = mongoose.Schema({
 
 const productSchema = new mongoose.Schema({
     user:{
-        type:mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: "user",
+        ref: "User",
     },
     name: {
         type:String,
@@ -72,7 +72,7 @@ const productSchema = new mongoose.Schema({
 
 
 }, {
-    timestamps:true,
+    timestamps: true,
 })
 
 const Product = mongoose.model('Product', productSchema)

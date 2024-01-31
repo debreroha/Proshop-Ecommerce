@@ -13,6 +13,7 @@ const HomeScreen = () => {
       setProducts(data)
     }
 
+    
     fetchProducts()
   }, [])
 
