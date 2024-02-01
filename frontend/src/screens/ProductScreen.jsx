@@ -9,6 +9,7 @@ const ProductScreen = () => {
     const[product, setProduct] = useState({})
 
     const {id: productId} = useParams()
+    console.log(productId)
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -21,7 +22,7 @@ const ProductScreen = () => {
 
   return (
     <>
-      <Link className='btn btn-light ny-3' to='/'>
+      <Link className='btn btn-light my-3' to='/'>
         Go Back
       </Link>
 
