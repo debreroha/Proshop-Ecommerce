@@ -13,14 +13,19 @@ app.get('/', (req, res) => {
     res.send('API is running')
 })
 
-app.get('/api/products', (req, res) => {
+app.get('/api/products', (req, res) => {3
     res.json(products)
 })
-
+3
 app.get('/api/products/:id', (req, res) =>{
-    productId = req.params.id
-    const product = productsmap((p) => p._id === productId)
-    res.json(product)
+    
+    const product = products.find((p) => p._id === req.params.id)
+    if (product) {
+        res.json(product);
+    } else {
+        res.status(404).json({ message: 'Product not found' });
+    }
+    
 })
 
 app.listen(port, () => console.log(`server running on ${port}`)) 

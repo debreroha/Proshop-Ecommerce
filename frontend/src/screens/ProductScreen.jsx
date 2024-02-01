@@ -6,6 +6,7 @@ import Rating from '../components/Rating'
 import axios from 'axios'
  
 const ProductScreen = () => {
+    // const productId = props.match.params.id;
     const[product, setProduct] = useState({})
 
     const {id: productId} = useParams()
@@ -19,6 +20,10 @@ const ProductScreen = () => {
 
         fetchProduct()
     }, [productId])
+
+    if (!product) {
+        return <div>Loading...</div>;
+    }
 
   return (
     <>
