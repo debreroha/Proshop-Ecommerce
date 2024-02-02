@@ -6,20 +6,19 @@ import Rating from '../components/Rating'
 import axios from 'axios'
  
 const ProductScreen = () => {
-    // const productId = props.match.params.id;
     const[product, setProduct] = useState({})
 
-    const {id: productId} = useParams()
-    console.log(productId)
+    const {id} = useParams()
+    console.log(id)
 
     useEffect(() => {
         const fetchProduct = async () => {
-            const {data} = await axios.get(`/api/products/${productId}`)
+            const {data} = await axios.get(`/api/products/${id}`)
             setProduct(data)
         }
 
         fetchProduct()
-    }, [productId])
+    }, [id])
 
     if (!product) {
         return <div>Loading...</div>;
