@@ -30,4 +30,4 @@ app.get('/api/products/:id', (req, res) =>{
     
 })
 
-app.listen(port, () => console.log(`server running on ${port}`)) 
+app.listen(port, () => console.log(`server running on port ${port}`)) 

@@ -35,7 +35,7 @@ const importData = async () => {
 
 const destroyData = async () => {
   try {
-    await Order.deleteMany().maxTimeMS(30000);
+    await Order.deleteMany()
     await Product.deleteMany();
     await User.deleteMany();
 
