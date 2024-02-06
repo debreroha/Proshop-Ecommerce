@@ -8,7 +8,6 @@ const getProducts = asyncHandler(async (req, res) => {
         res.json(products)
 })
 
-
 // fetch a product
 // GET /api/products/:id
 const getProductById = asyncHandler(async (req, res) => {
