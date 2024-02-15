@@ -13,3 +13,4 @@ Message.defaultProps = {
 }
 
 export default Message
+
