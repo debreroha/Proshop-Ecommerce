@@ -11,8 +11,8 @@ function App() {
         <Container>
           <Outlet />
         </Container>
-      </main>
       <Footer />
+      </main>
 
     </>
   );

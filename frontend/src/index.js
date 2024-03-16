@@ -17,7 +17,7 @@ import reportWebVitals from './reportWebVitals';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartsScreen from './screens/CartsScreen';
-// import LoginScreen from './screens/LoginScreen';
+import LoginScreen from './screens/LoginScreen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,7 +25,7 @@ const router = createBrowserRouter(
       <Route index={true} path='/' element={<HomeScreen />} ></Route>
       <Route path='/product/:id' element={<ProductScreen />} ></Route>
       <Route path='/cart' element={<CartsScreen />} ></Route>
-      {/* <Route path='/login' element={<LoginScreen />} ></Route> */}
+      <Route path='/login' element={<LoginScreen />} ></Route>
     </Route>
   )
 )
