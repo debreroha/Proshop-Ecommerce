@@ -7,10 +7,10 @@ import { toast } from 'react-toastify';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import {
-//   useDeliverOrderMutation,
   useGetOrderDetailsQuery,
   useGetPayPalClientIdQuery,
   usePayOrderMutation,
+  useDeliverOrdersMutation
 } from '../slices/ordersApiSlice';
 
 const OrderScreen = () => {
@@ -25,8 +25,8 @@ const OrderScreen = () => {
 
   const [payOrder, { isLoading: loadingPay }] = usePayOrderMutation();
 
-//   const [deliverOrder, { isLoading: loadingDeliver }] =
-//     useDeliverOrderMutation();
+  const [deliverOrder, { isLoading: loadingDeliver }] =
+  useDeliverOrdersMutation();
 
   const { userInfo } = useSelector((state) => state.auth);
 
@@ -101,6 +101,15 @@ const OrderScreen = () => {
 //     refetch();
 //   };
 
+  const delivereOrderHandler = async () => {
+    try {
+      await deliverOrder(orderId)
+      refetch()
+      toast.success('Order delivered')
+    } catch (err) {
+      toast.error(err?.data?.message || err.message)
+    }
+  }
   return isLoading ? (
     <Loader />
   ) : error ? (
@@ -239,6 +248,17 @@ const OrderScreen = () => {
                 </ListGroup.Item>
               )}
 
+                  {loadingDeliver && <Loader />}
+
+                  {userInfo && userInfo.isAdmin && order.isPaid && 
+                  !order.isDelivered && (
+                    <ListGroup.Item>
+                      <Button type='button' className='btn btn-block'
+                      onClick={delivereOrderHandler}>
+                        Mark As Delivered
+                      </Button>
+                    </ListGroup.Item>
+                  )}
             
             </ListGroup>
           </Card>
