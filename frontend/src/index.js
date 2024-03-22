@@ -50,23 +50,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-    <PayPalScriptProvider deferLoading={true}>
+    <PayPalScriptProvider >
       <RouterProvider router={router} />
     </PayPalScriptProvider>
     </Provider>
   </React.StrictMode>
 );
 
-// Router>
-//       <Routes>
-//         <Route path="/" element={<App />}>
-//           <Route index={true} path="/" element={<HomeScreen />} />
-//           <Route path="/product/:id" element={<ProductScreen />} />
-//         </Route>
-//       </Routes>
-//     </Router>
- 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 reportWebVitals();
