@@ -16,6 +16,7 @@ import './assets/styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import HomeScreen from './screens/HomeScreen';
+import AdminRoute from './components/AdminRoute';
 import ProductScreen from './screens/ProductScreen';
 import CartsScreen from './screens/CartsScreen';
 import LoginScreen from './screens/LoginScreen';
@@ -25,6 +26,8 @@ import PrivateRoute from './components/PrivateRoute'
 import PaymenScreen from './screens/PaymentScreen'
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import OrderListScreen from './screens/admin/OrderListScreen';
  
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -40,17 +43,23 @@ const router = createBrowserRouter(
         <Route path='/payment' element={<PaymenScreen />} ></Route>
         <Route path='/placeorder' element={<PlaceOrderScreen />} ></Route>
         <Route path='/order/:id' element={<OrderScreen />} ></Route>
+        <Route path='/profile' element={<ProfileScreen />} ></Route>
       </Route>
+
+      <Route path='' element={<AdminRoute />} >
+        <Route path='/admin/orderlist/' element={<OrderListScreen />} ></Route>
+      </Route> 
     </Route>  
   )
 )
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-    <PayPalScriptProvider >
+    <PayPalScriptProvider deferLoading={false}>
       <RouterProvider router={router} />
     </PayPalScriptProvider>
     </Provider>
