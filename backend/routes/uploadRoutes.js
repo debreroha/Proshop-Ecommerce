@@ -14,11 +14,11 @@ const storage = multer.diskStorage({
 })
 
 function checkFileTypes(file, cb) {
-    const filetypes = /jpg|jpeg|png/
+    const filetypes = /jpg|jpeg|png|jfif/
     const extname = filetypes.test(path.extname(file.originalname).toLowerCase())
     const mimTypes = filetypes.test(file.mimTypes)
     if (extname && mimTypes) {
-        return cb(null, true)
+        return cb(null, true) 
     }else {
         cb('Images Only')
     }
@@ -32,7 +32,7 @@ router.post('/', upload.single('image'), (req, res) => {
     res.send({
         message: 'Image Uploaded',
         image: `/${req.file.path}`
-    })
+    }) 
 })
 
 export default router
