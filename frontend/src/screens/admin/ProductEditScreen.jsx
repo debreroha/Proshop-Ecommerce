@@ -67,7 +67,7 @@ const ProductEditScreen = () => {
         formData.append('image', e.target.files[0])
         try {
             const res = await uploadProductImage(formData).unwrap()
-            toast.success(res.Message)
+            toast.success('upload successful')
             setImage(res.image)
         } catch (err) {
             toast.error(err?.data?.message || err.error)
@@ -110,7 +110,9 @@ const ProductEditScreen = () => {
                             type="text"
                             placeholder="Enter Image url"
                             value={image}
-                            onChange={(e) => setImage}></Form.Control>
+                            onChange={(e) => setImage}
+                            style={{height: '110px' }}
+                            ></Form.Control>
                         <Form.Control
                             type="file"
                             Label="Choose file"
