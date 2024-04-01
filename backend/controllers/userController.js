@@ -124,7 +124,7 @@ const getUsers = asyncHandler(async (req, res) => {
     res.status(200).json(users)
 })
 
-//@dec get user by ID
+//@dec get user by ID 
 // GET /api/users/:id
 // @access priavte/admin
 const getUserByID = asyncHandler(async (req, res) => {
@@ -162,7 +162,7 @@ const deleteUser = asyncHandler(async (req, res) => {
 // PUT /api/users/:id
 // @access priavte/admin
 const updateUser = asyncHandler(async (req, res) => {
-    const user = User.findById(req.params.id)
+    const user = await User.findById(req.params.id)
 
     if(user) {
         user.name = req.body.name || user.name
