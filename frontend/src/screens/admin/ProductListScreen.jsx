@@ -3,6 +3,7 @@ import { Table, Button, Row, Col } from 'react-bootstrap';
 import { FaEdit, FaPlus, FaTrash } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import Message from '../../components/Message';
+import Paginate from '../../components/Paginate';
 import Loader from '../../components/Loader';
 // import Paginate from '../../components/Paginate';
 import {
@@ -81,7 +82,7 @@ const ProductListScreen = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((product) => (
+              {data.products.map((product) => (
                 <tr key={product._id}>
                   <td>{product._id}</td>
                   <td>{product.name}</td>
@@ -106,7 +107,7 @@ const ProductListScreen = () => {
               ))}
             </tbody>
           </Table>
-          {/* <Paginate pages={data.pages} page={data.page} isAdmin={true} /> */}
+          <Paginate pages={data.pages} page={data.page} isAdmin={true} />
         </>
       )}
     </>

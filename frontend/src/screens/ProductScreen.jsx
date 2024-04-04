@@ -9,7 +9,6 @@ import Loader from '../components/Loader'
 import { useGetProductsDetailQuery, useCreateReviewMutation } from '../slices/productsApiSlice'
 import Message from '../components/Message'
 import {addToCart} from '../slices/cartSlice'
-import { set } from 'mongoose'
 
  
 const ProductScreen = () => {
