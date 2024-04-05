@@ -9,6 +9,7 @@ import Loader from '../components/Loader'
 import { useGetProductsDetailQuery, useCreateReviewMutation } from '../slices/productsApiSlice'
 import Message from '../components/Message'
 import {addToCart} from '../slices/cartSlice'
+import Meta from '../components/Meta'
 
  
 const ProductScreen = () => {
@@ -56,7 +57,9 @@ const ProductScreen = () => {
         <Link className='btn btn-light my-3' to='/'>
             Go Back
         </Link>
-        { isLoading ? (<Loader />) :  error ? (<Message variant='danger'>{error?.data?.message || error.error}</Message>) : (<>
+        { isLoading ? (<Loader />) :  error ? (<Message variant='danger'>{error?.data?.message || error.error}</Message>) :
+         (<>
+            <Meta title={product.name} />
             <Row>
                 <Col md={5}>
                     <Image src = {product.image} alt={product.name} fluid />
